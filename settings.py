@@ -102,6 +102,7 @@ ROOT_URLCONF = 'progpac.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
+    os.path.join(SITE_ROOT, 'levels'),
 )
 
 INSTALLED_APPS = (
