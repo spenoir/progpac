@@ -42,7 +42,6 @@ class Body(List): pass
 comma = ~Token(',')
 left_bracket = ~Token("\(")
 right_bracket = ~Token("\)")
-spaces = ~Token(r'[\\s\\t\\n]')[:]
 
 # Predefinition
 call = Delayed()
