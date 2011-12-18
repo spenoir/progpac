@@ -75,9 +75,13 @@
         <h1>ProgPac<small> code your pacman!</small></h1>
       </div>
       
+      {% if code %}
       <pre>{{ code }}</pre>
+      {% endif %}
 
+      {% if ast %}
       <pre>{{ ast }}</pre>
+      {% endif %}
       
       <form method="POST">
         {% csrf_token %}
