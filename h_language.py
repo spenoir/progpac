@@ -72,12 +72,22 @@ parser.config.lines()
 class Parser(object):
 
     def __init__(self, code):
-        self.ast = parser.parse(code)[0]
-        self.body = filter(lambda x: x.__class__ == Body, self.ast)[0]
-        self.funcs = dict(map(lambda x: (x[0], x),
-                              filter(lambda x: isinstance(x,FuncDef), self.ast)))
-        
-        self.code = self.go(self.body)
+        try:
+            self.ast = parser.parse(code)[0]
+            self.body = filter(lambda x: x.__class__ == Body, self.ast)[0]
+            self.funcs = dict(
+                map(lambda x: (x[0], x),
+                filter(lambda x: isinstance(x,FuncDef), self.ast)))
+            
+            self.code = self.go(self.body)
+            self.error = None
+        except FullFirstMatchException as e:
+            self.error = e.message
+            self.body = None
+            self.ast = None
+            self.funcs = {}
+            self.code = ""
+            
 
     def go(self, body, loc=None, steps=None):
         if loc is None:

@@ -20,7 +20,8 @@ f(rr,rr)sss
             self.get_context_data(
                 form=form,
                 code=parser.code,
-                ast=parser.ast
+                ast=parser.ast,
+                error=parser.error
             ))
 
 

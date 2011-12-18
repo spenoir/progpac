@@ -27,20 +27,21 @@
       {% if ast %}
       <pre>{{ ast }}</pre>
       {% endif %}
+
+      {% if error %}
+      <div class="alert-message error">
+        <p>
+          <strong>Holy guacamole!</strong> 
+          {{ error }}
+        </p>
+      </div>
+      {% endif %}
       
       <form method="POST">
         {% csrf_token %}
-        <fieldset>
-          <div class="clearfix">
-            <label for="textarea">Textarea</label>
-            <div class="input">
-              {{ form.text }}
-              <span class="help-block">
-                Code your pacman.
-              </span>
-            </div>
-          </div>
-        </fieldset>
+
+        {{ form.text }}
+        
         <div class="actions">
           <input type="submit" class="btn primary" value="Go!">
         </div>
