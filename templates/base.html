@@ -37,13 +37,13 @@
       </div>
       {% endif %}
       
-      <form method="POST">
+      <form method="POST" class="form-stacked">
         {% csrf_token %}
 
         {{ form.text }}
         
         <div class="actions">
-          <input type="submit" class="btn primary" value="Go!">
+          <input type="submit" class="btn primary" value="Generate!">
         </div>
       </form>        
     </div>
