@@ -1,7 +1,7 @@
 from django.views.generic.edit import FormView
 
+import forms
 
-from . import forms
 
 class Home(FormView):
     template_name = "base.html"

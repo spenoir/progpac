@@ -6,11 +6,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet/less" type="text/css" 
+    <link rel="stylesheet/less" type="text/css"
           href="{% get_static_prefix %}lib/bootstrap.less">
 
-    <script src="{% get_static_prefix %}js/less.js" 
+    <script src="{% get_static_prefix %}js/less.js"
             type="text/javascript"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}js/game/init.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}js/game/grid.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}js/game/pac.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}js/game/game.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}js/game/main.js"></script>
 
     <style type="text/css">
       /* Override some defaults */
@@ -74,7 +81,13 @@
       <div class="page-header">
         <h1>ProgPac<small> code your pacman!</small></h1>
       </div>
-      
+
+      <div class="row">
+	<div class="span16">
+	  <canvas id="canvas" width="500" height="500"></canvas>
+	</div>
+      </div>
+
       <form>
         <fieldset>
           <div class="clearfix">
@@ -90,7 +103,7 @@
         <div class="actions">
           <input type="submit" class="btn primary" value="Go!">
         </div>
-      </form>        
+      </form>
     </div>
   </body>
 </html>
