@@ -19,14 +19,6 @@
 
   <body>
     <div class="container">
-      
-      {% if code %}
-      <pre>{{ code }}</pre>
-      {% endif %}
-
-      {% if ast %}
-      <pre>{{ ast }}</pre>
-      {% endif %}
 
       {% if error %}
       <div class="alert-message error">
@@ -45,7 +37,16 @@
         <div class="actions">
           <input type="submit" class="btn primary" value="Generate!">
         </div>
-      </form>        
+      </form>
+
+      {% if code %}
+      <pre>{{ code }}</pre>
+      {% endif %}
+
+      {% if ast %}
+      <pre>{{ ast }}</pre>
+      {% endif %}
+
     </div>
   </body>
 </html>
