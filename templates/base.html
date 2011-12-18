@@ -75,7 +75,12 @@
         <h1>ProgPac<small> code your pacman!</small></h1>
       </div>
       
-      <form>
+      <pre>{{ code }}</pre>
+
+      <pre>{{ ast }}</pre>
+      
+      <form method="POST">
+        {% csrf_token %}
         <fieldset>
           <div class="clearfix">
             <label for="textarea">Textarea</label>
