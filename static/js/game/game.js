@@ -10,6 +10,20 @@ var Game = (function () {
       col: 10
     });
 
+    this.objects = new GridModel();
+    this.objects
+      .addDefault(this.pac)
+      .addDefault(Drawing.cellDrawer)
+      .set(4, 4, new ScoreCell({
+	score: 1,
+	drawables: [Drawing.pointDrawer]
+      }))
+      .set(10, 15, new ScoreCell({
+	score: 1,
+	drawables: [Drawing.pointDrawer]
+      }))
+    ;
+
     this.grid = new Grid({
       cellWidth: 15,
       cellHeight: 15
@@ -29,8 +43,9 @@ Game.method('start', function (pacpath) {  // pacpath is eg. "sssswwwewe"
     if (currentMove >= pacpath.length) {
       clearInterval(desc);
     } else {
-      that.grid.redraw(that.context, that.pac.cellDrawerGetter);
+      that.grid.redraw(that.context, that.objects.cellGetter);
       that.pac.move(pacpath[currentMove]);
+      that.pac.addScore(that.objects);
       currentMove += 1;
     }
   }
