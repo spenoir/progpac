@@ -15,6 +15,8 @@
             type="text/javascript"></script>
     <script src="{% get_static_prefix %}js/jquery.js"
             type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/bootstrap-dropdown.js"
+            type="text/javascript"></script>
 
     <script type="text/javascript" src="{% get_static_prefix %}js/game/init.js"></script>
     <script type="text/javascript" src="{% get_static_prefix %}js/game/drawing.js"></script>
@@ -29,18 +31,51 @@
 
   <body>
     <div class="container">
-      <canvas id="canvas" width="500" height="500"></canvas>
+
+      <div class="topbar-wrapper" style="z-index: 5;">
+        <div class="topbar" data-dropdown="dropdown">
+          <div class="topbar-inner">
+            <div class="container">
+              <h3><a href="#">ProgPac</a></h3>
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle">Levels</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Level 1</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Another link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <form method="POST" class="form-stacked">
-        {% csrf_token %}
-
-        {{ form.text }}
-
+        <div class="row">
+          <div class="span10">
+            <canvas id="canvas" width="500" height="500"></canvas>
+          </div>
+          <div class="span6">
+            {% csrf_token %}
+            {{ form.text }}
+          </div>
+        </div>
         <div class="actions">
           <input type="submit" class="btn primary" value="Generate!">
         </div>
       </form>
-
+      
       {% if code %}
       <pre>{{ code }}</pre>
       {% endif %}

@@ -4,7 +4,7 @@ class Editor(forms.Form):
     text = forms.CharField(
         widget=forms.Textarea(
             attrs={
-                'class':'xxlarge',
-                'rows':'10'
+                'class':'span6',
+                'rows':'6'
             }
         ))
