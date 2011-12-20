@@ -16,10 +16,12 @@ f(rr,rr)sss
 
     def form_valid(self, form):
         parser = h_language.Parser(form.cleaned_data['text'])
-        return self.render_to_response(
-            self.get_context_data(
-                form=form,
-                code=parser.code,
-                ast=parser.ast,
-                error=parser.error
-            ))
+
+        context = {"form": form,
+                   "error": parser.error}
+        
+        if self.request.POST['submit'] == 'Debug':
+            context.update({"code": parser.code,
+                            "ast": parser.ast})
+            
+        return self.render_to_response(context)
