@@ -1,4 +1,31 @@
 from lepl import *
+from lepl.matchers.error import syntax_error_kargs
+    
+
+def init(self, stream):
+    self.lineno = s_deepest(stream)[1]._delta[1]
+    self.offset = s_deepest(stream)[1]._delta[0]
+    self.msg = "The match failed"
+
+FullFirstMatchException.__init__ = init
+
+
+def with_line(node):
+    def wrapper(results, stream_out, **kwargs): 
+        location_helper = syntax_error_kargs(
+            kwargs['stream_in'], stream_out, results)
+        return node(results,
+                    in_lineno=location_helper['in_lineno'],
+                    in_char=location_helper['in_char'])
+    return wrapper 
+
+
+class List(List):
+    def __init__(self, *args, **kwargs):
+        self.in_lineno = kwargs.pop('in_lineno', 0)
+        self.in_char = kwargs.pop('in_char', 0)
+        super(List, self).__init__(*args, **kwargs)
+
 
 class Func(List):
     @property
@@ -48,30 +75,38 @@ call = Delayed()
 func = Delayed()
 
 moves = (Token("[lsr]")[1:] > (lambda x: "".join(x)))
-variable = Token('[A-Z]') > Variable
-body = (moves | call | variable)[1:] > Body
+variable = Token('[A-Z]') ** with_line(Variable)
+body = (moves | call | variable)[1:] ** with_line(Body)
 
 func_name = Token("[abcdefghijkmnopqtuvwxyz]")
 
 # Function Call
 call_digits = Token('[A-Z]') & Token('\-') & Token("[0-9]")[1:] > (lambda x: "".join(x))
 call_args = left_bracket & Or(moves, call_digits)[1:, comma] & right_bracket > FuncArgs
-call+= func_name & call_args[:1] > FuncCall
+call+= (func_name & call_args[:1]) ** with_line(FuncCall)
 
 # Function definition
 func_sep = ~Token(":")
 func_args = left_bracket & Token('[A-Z]')[1:, comma] & right_bracket > FuncArgs
 func_loc = Token('[A-Z]')
-func+= func_name & func_args[:1] & func_sep & body > FuncDef
+func+= (func_name & func_args[:1] & func_sep & body) ** with_line(FuncDef)
 
 line = LineStart() & Or(func, body)[:] & LineEnd()
-parser = line[:] > Main
+parser = (line[:] > Main)
 parser.config.lines()
+# parser.config.no_full_first_match()
 
 
 class Parser(object):
 
     def __init__(self, code):
+
+        self.body = None
+        self.ast = None
+        self.funcs = {}
+        self.code = ""
+        self.error = None
+        
         try:
             self.ast = parser.parse(code)[0]
             self.body = filter(lambda x: x.__class__ == Body, self.ast)[0]
@@ -80,15 +115,9 @@ class Parser(object):
                 filter(lambda x: isinstance(x,FuncDef), self.ast)))
             
             self.code = self.go(self.body)
-            self.error = None
-        except FullFirstMatchException as e:
-            self.error = e.message
-        except Error as e:
-            self.error = e.msg
-            self.body = None
-            self.ast = None
-            self.funcs = {}
-            self.code = ""
+        except (Error, FullFirstMatchException) as e:
+            self.error = "Line: %s, Character: %s. %s" % (
+                e.lineno, e.offset, e.msg)
             
 
     def go(self, body, loc=None, steps=None):
@@ -110,11 +139,14 @@ class Parser(object):
                 try:
                     function_def = self.funcs[element.name]
                 except KeyError:
-                    raise Error("Function %s not defined." % element.name, {})
+                    raise Error("Function %s not defined." % element.name,
+                                {"in_lineno": element.in_lineno,
+                                 "in_offset": element.in_char})
 
                 if len(function_def.args) != len(element.args):
-                    raise Error("Wrong arguments in function %s call."
-                                % element.name, {})
+                    raise Error("Wrong arguments in function %s call." % element.name,
+                                {"in_lineno": element.in_lineno,
+                                 "in_offset": element.in_char})
                 args = dict(zip(function_def.args, function_call.args))
                 try:
                     steps.append( self.go(function_def.body, args) )
@@ -125,6 +157,9 @@ class Parser(object):
 
 
 if __name__ == "__main__":
-    code =  """s"""
+    code =  """x():sss
+    sssssx
+    """
     parser = Parser(code)
     print parser.code
+    print parser.error
