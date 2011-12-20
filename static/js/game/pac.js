@@ -3,11 +3,35 @@ var Pac = (function () {
     row: 0,
     col: 0,
   };
+
+  var CycleList = (function (items) {
+    var items = items;
+    var currentIndex = 0;
+    return {
+      right: function () {
+	currentIndex += 1;
+	if (currentIndex === items.length)
+	  currentIndex = 0;
+	return items[currentIndex];
+      },
+      left: function () {
+	currentIndex -= 1;
+	if (currentIndex === -1)
+	  currentIndex = items.length - 1;
+	return items[currentIndex];
+      },
+      current: function () {
+	return items[currentIndex];
+      }
+    };
+  });
+
   return function (opts) {
     var o = opts || {};
     this.row = o.row || defaults.row;
     this.col = o.col || defaults.col;
     this.score = 0;
+    this.direction = CycleList(["n", "e", "s", "w"]);
   }
 })();
 
@@ -23,13 +47,30 @@ Pac.method('addScore', function (gridmodel) {
 });
 
 
-Pac.method('move', function (direction) {
+Pac.method('debug', function (toprint) {
+  (console.log || function (whatever) {})(toprint);
+});
+
+
+Pac.method('move', function (what) {  // s(step) ; l(turn-left) ; l(turn-right)
+  switch (what) {
+  case "s": this.step(); break;
+  case "r": this.direction.right(); break;
+  case "l": this.direction.left(); break;
+  default:
+    this.debug("Wrong move: " + what);
+  }
+});
+
+
+Pac.method('step', function () {
+  var direction = this.direction.current();
   switch (direction) {
   case "n": this.row--; break;
   case "s": this.row++; break;
   case "e": this.col--; break;
   case "w": this.col++; break;
   default:
-    (console.log || function (whatever) {})("Wrong direction: " + direction);
+    this.debug("Wrong direction: " + direction);
   }
 });

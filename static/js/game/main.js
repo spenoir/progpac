@@ -4,5 +4,10 @@ $(function () {
     context: document.getElementById('canvas').getContext('2d'),
     level: LEVEL
   });
-  game.start("ssssswwwwwnnnnn")
+
+  if (CODE) {
+    game.start(CODE);
+  } else {
+    game.redraw();
+  }
 });

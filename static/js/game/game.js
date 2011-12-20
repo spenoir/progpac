@@ -47,7 +47,12 @@ var Game = (function () {
 })();
 
 
-Game.method('start', function (pacpath) {  // pacpath is eg. "sssswwwewe"
+Game.method('redraw', function () {
+  this.grid.redraw(this.context, this.objects.cellGetter);
+});
+
+
+Game.method('start', function (pacpath) {
   var that = this;
   var currentMove = 0;
   var desc = 0;
@@ -55,7 +60,7 @@ Game.method('start', function (pacpath) {  // pacpath is eg. "sssswwwewe"
     if (currentMove >= pacpath.length) {
       clearInterval(desc);
     } else {
-      that.grid.redraw(that.context, that.objects.cellGetter);
+      that.redraw();
       that.pac.move(pacpath[currentMove]);
       that.pac.addScore(that.objects);
       currentMove += 1;

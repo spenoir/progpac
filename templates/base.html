@@ -28,6 +28,7 @@
     <script type="text/javascript" src="{% get_static_prefix %}js/game/main.js"></script>
     <script type="text/javascript">
       var LEVEL = {{ level|safe }};
+      var CODE = "{{ code|default:"" }}";
     </script>
   </head>
 
@@ -78,12 +79,12 @@
         </div>
       </form>
       
-      {% if code %}
-      <pre>{{ code }}</pre>
+      {% if debug_code %}
+      <pre>{{ debug_code }}</pre>
       {% endif %}
 
-      {% if ast %}
-      <pre>{{ ast }}</pre>
+      {% if debug_ast %}
+      <pre>{{ debug_ast }}</pre>
       {% endif %}
       
     </div>
