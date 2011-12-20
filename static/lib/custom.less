@@ -2,38 +2,43 @@ html, body {
     background-color: #eee;
 }
 
-.container {
-    width: 940px;
-}
-
-.form-stacked {
-  padding-left: 0px;
-  .actions {
-      text-align: right;
-      margin-left: 0px;
-  }
+.content {
+    margin-top: 44px;
 }
 
 .row {
-  margin-top: 56px;
-  .span10, .span6 {
-      min-height: 500px;
-  }
+    .game-grid canvas {
+        background: #fff;
+        border: 1px solid #CCC;
+    }
+    .editor textarea {
+        min-height: 497px;
+        width: 100%;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        overflow-y: auto;
+        font-size: 14px;
+        position: relative;
+
+    }
+    .editor .alert-message {
+        position: fixed;
+
+        
+    }
 }
 
-canvas { 
-    background-color: #333;
-    /* border: 1px solid; */
+.actions {
+    margin-bottom: 0px;
+    padding-left: 20px;
+    text-align: right;
 }
 
-.row .span6 {
-    margin-left: 0;
+
+.alert-message {
+    margin-bottom: 3px;
 }
 
-textarea.span6 {
-    display: block;
-    width: 100%;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
-    overflow-y: auto;
+.error-placeholder {
+    height: 38px
 }
