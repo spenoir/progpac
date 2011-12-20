@@ -11,10 +11,7 @@ class Home(FormView):
     template_name = "base.html"
     form_class = forms.Editor
     initial = {
-        'text': """x(C):Cx(ss)
-f(A,B):ABx(ll)
-f(rr,rr)sss
-"""
+        'text': "slssrssrssssrss",
     }
 
     def read_level(self, name):
@@ -33,11 +30,17 @@ f(rr,rr)sss
     def form_valid(self, form):
         parser = h_language.Parser(form.cleaned_data['text'])
 
-        context = {"form": form,
-                   "error": parser.error}
-        
+        context = self.get_context_data()
+        context.update({
+            "form": form,
+            "error": parser.error,
+            "code": parser.code,
+        })
+
         if self.request.POST['submit'] == 'Debug':
-            context.update({"code": parser.code,
-                            "ast": parser.ast})
-            
+            context.update({
+                "debug_code": parser.code,
+                "debug_ast": parser.ast,
+            })
+
         return self.render_to_response(context)
