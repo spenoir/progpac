@@ -44,6 +44,15 @@ Drawing = (function () {
       	ctx.arc(x + (w/2), y + (h/2), 4, 0, Math.PI * 2, true);
       	ctx.fill();
       }
+    },
+
+    otherPointDrawer: {
+      draw: function (ctx, r, c, x, y, w, h) {
+      	ctx.beginPath();
+      	ctx.fillStyle = "#000000";
+      	ctx.arc(x + (w/2), y + (h/2), 5, 0, Math.PI * 2, true);
+      	ctx.fill();
+      }
     }
   }
 })();
