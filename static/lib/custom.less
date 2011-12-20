@@ -1,3 +1,5 @@
+@import "bootstrap.less";
+
 html, body {
     background-color: #eee;
 }
@@ -10,14 +12,15 @@ html, body {
     .game-grid canvas {
         background: #fff;
         border: 1px solid #CCC;
+        .border-radius(3px);
     }
     .editor textarea {
         min-height: 497px;
         width: 100%;
-        font-family: "Courier New", Courier, monospace;
+        font-family: 'Ubuntu Mono', sans-serif;
         font-weight: bold;
         overflow-y: auto;
-        font-size: 14px;
+        font-size: 15px;
         position: relative;
 
     }
