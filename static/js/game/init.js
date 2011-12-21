@@ -4,5 +4,6 @@ Function.prototype.method = function (name, func) {
 }
 
 Object.method('debug', function (toprint) {
-  (console.log || function (whatever) {})(toprint);
+  if (console !== undefined && console.log !== undefined)
+    console.log(toprint);
 });
