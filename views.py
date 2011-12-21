@@ -21,7 +21,8 @@ class Home(FormView):
         return context
 
     def form_valid(self, form):
-        parser = h_language.Parser(form.cleaned_data['text'])
+        level = open(join(settings.SITE_ROOT, 'levels', 'level1.txt')).read()
+        parser = h_language.Parser(form.cleaned_data['text'], level)
 
         context = {
             "form": form,

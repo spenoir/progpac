@@ -94,13 +94,15 @@ func+= (func_name & func_args[:1] & func_sep & body) ** with_line(FuncDef)
 line = LineStart() & Or(func, body)[:] & LineEnd()
 parser = (line[:] > Main)
 parser.config.lines()
-# parser.config.no_full_first_match()
 
 
 class Parser(object):
 
-    def __init__(self, code):
+    def __init__(self, code, level=""):
 
+        if level:
+            self.setup_level(level)
+            
         self.body = None
         self.ast = None
         self.funcs = {}
@@ -118,7 +120,16 @@ class Parser(object):
         except (Error, FullFirstMatchException) as e:
             self.error = "Line: %s, Character: %s. %s" % (
                 e.lineno, e.offset, e.msg)
-            
+
+    def setup_level(self, level):
+        self.level_lines = level.split("\r\n")[:25]
+        for i, line in enumerate(self.level_lines):
+            index = line.find("u")
+            if index > 0:
+                position = (i, index)
+
+        self.position = position
+        self.direction = 0
 
     def go(self, body, loc=None, steps=None):
         if loc is None:
@@ -128,7 +139,36 @@ class Parser(object):
 
         for element in body:
             if isinstance(element, basestring):
-                steps.append(element)
+                for move in element:
+
+                    if move == "s":
+                        real_position = self.direction % 4
+                        
+                        if real_position == 0:
+                            next_place = self.level_lines[self.position[0]-1][self.position[1]]
+                            next_position = (self.position[0]-1, self.position[1])
+                        elif real_position == 1:
+                            next_place = self.level_lines[self.position[0]][self.position[1]+1]
+                            next_position = (self.position[0], self.position[1]+1)
+                        elif real_position == 2:
+                            next_place = self.level_lines[self.position[0]+1][self.position[1]]
+                            next_position = (self.position[0]+1, self.position[1])
+                        elif real_position == 3:
+                            next_place = self.level_lines[self.position[0]][self.position[1]-1]
+                            next_position = (self.position[0], self.position[1]-1)
+                        
+                        if next_place == ".":
+                            steps.append(move)
+                            self.position = next_position
+                        else:
+                            steps.append("x")
+                        
+                    if move in "r":
+                        steps.append(move)
+                        self.direction=+1
+                    if move in "l":
+                        steps.append(move)
+                        self.direction=-1
             
             elif isinstance(element, Variable):
                 steps.append(loc[element.name])
@@ -157,9 +197,8 @@ class Parser(object):
 
 
 if __name__ == "__main__":
-    code =  """x():sss
-    sssssx
+    code =  """ssrls
     """
-    parser = Parser(code)
+    parser = Parser(code, open('levels/level1.txt').read())
     print parser.code
     print parser.error
