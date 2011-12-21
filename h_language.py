@@ -122,7 +122,7 @@ class Parser(object):
                 e.lineno, e.offset, e.msg)
 
     def setup_level(self, level):
-        self.level_lines = level.split("\r\n")[:25]
+        self.level_lines = level.split("\n")
         for i, line in enumerate(self.level_lines):
             index = line.find("u")
             if index > 0:

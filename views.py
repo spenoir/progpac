@@ -5,7 +5,7 @@ from django.utils import simplejson as json
 
 from progpac import forms
 from progpac import h_language
-
+from progpac import models
 
 class Home(FormView):
     template_name = "base.html"
@@ -14,15 +14,13 @@ class Home(FormView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(Home, self).get_context_data(*args, **kwargs)
-        level_lines = open(join(
-            settings.SITE_ROOT, 'levels', 'level1.txt')).readlines()[:25]
-        context["level"] = json.dumps(
-            [map(str, line.rstrip()) for line in level_lines])
+        level = models.Level.objects.get(name='level1').content
+        context["level"] = [map(str, element) for element in level.split("\n")]
         return context
 
     def form_valid(self, form):
-        level = open(join(settings.SITE_ROOT, 'levels', 'level1.txt')).read()
-        parser = h_language.Parser(form.cleaned_data['text'], level)
+        level = models.Level.objects.get(name='level1')
+        parser = h_language.Parser(form.cleaned_data['text'], level.content)
 
         context = {
             "form": form,
