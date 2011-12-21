@@ -7,8 +7,6 @@
 /* Grid object has ability to draw grid on canvas,
  */
 var Grid = (function () {
-  var nullDrawer = function (ctx, x, y, w, h) {};
-
   var defaults = {
     x: 0,
     y: 0,
@@ -16,10 +14,10 @@ var Grid = (function () {
     cols: 30,
     cellWidth: 10,
     cellHeight: 10,
-    cellDrawer: nullDrawer,
+    cellDrawer: Drawing.nullDrawer.draw,
     cellDrawerGetter: {
       get: function (r, c) {
-	return nullDrawer;
+	return Drawing.nullDrawer.draw;
       }
     }
   }

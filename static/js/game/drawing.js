@@ -69,6 +69,10 @@ Drawing = (function () {
       	ctx.arc(x + (w/2), y + (h/2), 5, 0, Math.PI * 2, true);
       	ctx.fill();
       }
+    },
+
+    nullDrawer: {
+      draw: function (ctx, r, c, x, y, w, h) {}
     }
   }
 })();
