@@ -6,6 +6,7 @@ $(function () {
   });
 
   if (CODE) {
+    game.redraw();
     game.start(CODE);
   } else {
     game.redraw();

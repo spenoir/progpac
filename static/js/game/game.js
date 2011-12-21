@@ -60,9 +60,9 @@ Game.method('start', function (pacpath) {
     if (currentMove >= pacpath.length) {
       clearInterval(desc);
     } else {
-      that.redraw();
       that.pac.move(pacpath[currentMove]);
       that.pac.addScore(that.objects);
+      that.redraw();
       currentMove += 1;
     }
   }
