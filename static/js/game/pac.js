@@ -38,7 +38,7 @@ var Pac = (function () {
 
 Pac.method('draw', function (ctx, r, c, x, y, w, h) {
   if (r === this.row && c === this.col)
-    Drawing.pacmanDrawer.draw(ctx, r, c, x, y, w, h);
+    Drawing.pacmanDrawer.draw(ctx, r, c, x, y, w, h, this.direction.current());
 });
 
 
@@ -68,8 +68,8 @@ Pac.method('step', function () {
   switch (direction) {
   case "n": this.row--; break;
   case "s": this.row++; break;
-  case "e": this.col--; break;
-  case "w": this.col++; break;
+  case "e": this.col++; break;
+  case "w": this.col--; break;
   default:
     this.debug("Wrong direction: " + direction);
   }
