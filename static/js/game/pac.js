@@ -47,11 +47,6 @@ Pac.method('addScore', function (gridmodel) {
 });
 
 
-Pac.method('debug', function (toprint) {
-  (console.log || function (whatever) {})(toprint);
-});
-
-
 Pac.method('move', function (what) {  // s(step) ; l(turn-left) ; l(turn-right)
   switch (what) {
   case "s": this.step(); break;
