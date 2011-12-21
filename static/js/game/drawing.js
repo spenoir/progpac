@@ -2,19 +2,13 @@ Drawing = (function () {
   return {
     cellDrawer: {
       draw: function(ctx, r, c, x, y, w, h) {
-	var radius = 3
-
+	var xcenter = (x + (w / 2)), ycenter = (y + (h / 2));
 	ctx.beginPath();
-	ctx.strokeStyle = "#cccccc",
-	ctx.moveTo(x, y + radius);
-	ctx.lineTo(x, y + h - radius);
-	ctx.quadraticCurveTo(x, y + h, x + radius, y + h);
-	ctx.lineTo(x + w - radius, y + h);
-	ctx.quadraticCurveTo(x + w, y + h, x + w, y + h - radius);
-	ctx.lineTo(x + w, y + radius);
-	ctx.quadraticCurveTo(x + w, y, x + w - radius, y);
-	ctx.lineTo(x + radius, y);
-	ctx.quadraticCurveTo(x, y, x, y + radius);
+	ctx.strokeStyle = "#cccccc";
+	ctx.moveTo(xcenter, y);
+	ctx.lineTo(xcenter, y + h);
+	ctx.moveTo(x, ycenter);
+	ctx.lineTo(x + w, ycenter);
 	ctx.stroke();
       }
     },

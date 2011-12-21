@@ -12,8 +12,8 @@ var Game = (function () {
 
     this.objects = new GridModel();
     this.objects
-      .addDefault(this.pac)
-      .addDefault(Drawing.cellDrawer);
+      .addDefault(Drawing.cellDrawer)
+      .addDefault(this.pac);
 
     this.level = opts.level;
 
