@@ -5,6 +5,13 @@ var Game = (function () {
   return function (opts) {
     var opts = opts || {};
 
+    this.tick = opts.tick || defaults.tick;
+
+    this.width = opts.width;
+    this.height = opts.height;
+    this.context = opts.context;
+    this.level = opts.level;
+
     this.pac = new Pac({
       row: 10,
       col: 10
@@ -14,8 +21,6 @@ var Game = (function () {
     this.objects
       .addDefault(Drawing.cellDrawer)
       .addDefault(this.pac);
-
-    this.level = opts.level;
 
     for (var row = 0; row < this.level.length; row += 1) {
       var line = this.level[row];
@@ -34,15 +39,15 @@ var Game = (function () {
       };
     };
 
-    this.grid = new Grid({
-      cellWidth: 15,
-      cellHeight: 15,
-      rows: this.level.length,
-      cols: this.level[0].length
-    });
+    var rows = this.level.length;
+    var cols = this.level[0].length;
 
-    this.tick = opts.tick || defaults.tick;
-    this.context = opts.context;
+    this.grid = new Grid({
+      cellWidth: parseInt(this.width / cols, 10),
+      cellHeight: parseInt(this.height / rows, 10),
+      rows: rows,
+      cols: cols
+    });
   };
 })();
 
