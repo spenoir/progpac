@@ -67,6 +67,30 @@ Drawing = (function () {
 
     nullDrawer: {
       draw: function (ctx, r, c, x, y, w, h) {}
+    },
+
+    pacpathDrawer: {
+      draw: function (ctx, r, c, x, y, w, h, direction) {
+	var xcenter = x + (w/2), ycenter = y + (h/2);
+
+	ctx.save();
+	ctx.beginPath();
+	ctx.strokeStyle = "#ff0000";
+	ctx.lineWidth = 3;
+	ctx.moveTo(xcenter, ycenter);
+
+	switch(direction) {
+	case "n": ctx.lineTo(xcenter, ycenter + h); break;
+	case "s": ctx.lineTo(xcenter, ycenter - h); break;
+	case "e": ctx.lineTo(xcenter - w, ycenter); break;
+	case "w": ctx.lineTo(xcenter + w, ycenter); break;
+	default:
+	  break;
+	}
+
+	ctx.stroke();
+	ctx.restore();
+      }
     }
   }
 })();

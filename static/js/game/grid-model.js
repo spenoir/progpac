@@ -50,16 +50,24 @@ GridModel.method('each', function (r, c, func) {
 });
 
 
-GridModel.method('visit', function (row, col) {
+GridModel.method('visit', function (pac, command) {
+  var row = pac.row, col = pac.col;
+
+  if (command === "s") {
+    this.addDefault(new PastPosition({
+      row: row,
+      col: col,
+      direction: pac.direction.current()
+    }));
+  }
+
   if (this.data[row] === undefined)
-    return 0;
+    return;
 
   if (this.data[row][col] === undefined)
-    return 0;
+    return;
 
   var item = this.data[row][col];
   if (item.visit !== undefined && ! this.visited)
-    return item.visit();
-
-  return 0;
+    pac.score += item.visit();
 });

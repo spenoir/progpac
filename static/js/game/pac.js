@@ -42,11 +42,6 @@ Pac.method('draw', function (ctx, r, c, x, y, w, h) {
 });
 
 
-Pac.method('addScore', function (gridmodel) {
-  this.score += gridmodel.visit(this.row, this.col);
-});
-
-
 Pac.method('move', function (what) {  // s(step) ; l(turn-left) ; l(turn-right)
   switch (what) {
   case "s": this.step(); break;
@@ -68,4 +63,21 @@ Pac.method('step', function () {
   default:
     this.debug("Wrong direction: " + direction);
   }
+});
+
+
+// PacMan PastPosition
+var PastPosition = (function () {
+  return function (opts) {
+    var o = opts || {};
+    this.row = o.row;
+    this.col = o.col;
+    this.direction = o.direction;
+  }
+})();
+
+
+PastPosition.method('draw', function (ctx, r, c, x, y, w, h) {
+  if (r === this.row && c === this.col)
+    Drawing.pacpathDrawer.draw(ctx, r, c, x, y, w, h, this.direction);
 });

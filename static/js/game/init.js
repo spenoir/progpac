@@ -3,6 +3,6 @@ Function.prototype.method = function (name, func) {
   return this;
 }
 
-Function.method('debug', function (toprint) {
+Object.method('debug', function (toprint) {
   (console.log || function (whatever) {})(toprint);
 });
