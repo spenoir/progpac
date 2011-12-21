@@ -29,11 +29,27 @@ Drawing = (function () {
     },
 
     pacmanDrawer: {
-      draw: function (ctx, r, c, x, y, w, h) {
+      draw: function (ctx, r, c, x, y, w, h, direction) {
+	var centerX = x + (w/2), centerY = y + (h/2);
       	ctx.beginPath();
       	ctx.fillStyle = "#ff0000";
-      	ctx.arc(x + (w/2), y + (h/2), (w/2), 0, Math.PI * 2, true);
+      	ctx.arc(centerX, centerY, (w/2), 0, Math.PI * 2, true);
       	ctx.fill();
+
+	var grotX = centerX, grotY = centerY;
+	switch(direction) {
+	case "n": grotY -= (h/4); break;
+	case "s": grotY += (h/4); break;
+	case "e": grotX += (w/4); break;
+	case "w": grotX -= (w/4); break;
+	default:
+	  break;
+	}
+
+	ctx.beginPath();
+	ctx.fillStyle = "#000000";
+	ctx.arc(grotX, grotY, 2, 0, Math.PI * 2, true);
+	ctx.fill();
       }
     },
 
