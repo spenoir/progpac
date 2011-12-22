@@ -4,6 +4,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from progpac import views
 
 urlpatterns = patterns('',
-    url(r'^(?P<level_name>\w+)/$', views.Home.as_view(), name='home')
+    url(r'^$', views.Home.as_view(), name='home'),
+    url(r'^(?P<level_name>\w+)/$', views.Level.as_view(), name='level')
 )
 urlpatterns += staticfiles_urlpatterns()

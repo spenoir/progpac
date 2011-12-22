@@ -45,7 +45,7 @@
               <ul class="dropdown-menu">
                 {% for level in all_levels %}
                 <li>
-                  <a href="{% url home level.name %}">
+                  <a href="{% url level level.name %}">
                     {{ level.name|capfirst }}
                   </a>
                 </li>
