@@ -12,15 +12,21 @@ class Home(FormView):
     form_class = forms.Editor
     initial = { 'text': "sssrss" }
 
+    @property
+    def level(self):
+        return models.Level.objects.get(name=self.kwargs.get('level_name'))
+    
     def get_context_data(self, *args, **kwargs):
         context = super(Home, self).get_context_data(*args, **kwargs)
-        level = models.Level.objects.get(name='level1').content
-        context["level"] = [map(str, element) for element in level.split("\n")]
+        context["level"] = json.dumps(self.level.lines);
+        context["all_levels"] = models.Level.objects.all()
         return context
-
+        
     def form_valid(self, form):
-        level = models.Level.objects.get(name='level1')
-        parser = h_language.Parser(form.cleaned_data['text'], level.content)
+        parser = h_language.Parser(
+            form.cleaned_data['text'],
+            self.level.content
+        )
 
         context = {
             "form": form,
