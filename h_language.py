@@ -157,7 +157,7 @@ class Parser(object):
                             next_place = self.level_lines[self.position[0]][self.position[1]-1]
                             next_position = (self.position[0], self.position[1]-1)
                         
-                        if next_place == ".":
+                        if next_place in (".", "o"):
                             steps.append(move)
                             self.position = next_position
                         else:
