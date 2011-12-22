@@ -17,6 +17,9 @@
             type="text/javascript"></script>
     <script src="{% get_static_prefix %}js/bootstrap-dropdown.js"
             type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/main.js"
+            type="text/javascript"></script>
+
 
     <script type="text/javascript" src="{% get_static_prefix %}js/game/init.js"></script>
     <script type="text/javascript" src="{% get_static_prefix %}js/game/drawing.js"></script>
@@ -75,6 +78,7 @@
             {% csrf_token %}
             {{ form.text }}
             <div class="actions">
+              <span class="code_length"></span>
               <input name="submit" type="submit" class="btn" value="Debug">
               <input name="submit" type="submit" class="btn primary" value="Make it Move!">
             </div>
