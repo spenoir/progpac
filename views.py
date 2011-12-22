@@ -10,7 +10,9 @@ from progpac import models
 class Home(FormView):
     template_name = "base.html"
     form_class = forms.Editor
-    initial = { 'text': "sssrss" }
+    initial = { 'text': """x:lslsrssrsls
+f:xxx
+srsslsf""" }
 
     @property
     def level(self):
