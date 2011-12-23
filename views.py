@@ -1,4 +1,4 @@
-from django.views.generic import FormView, RedirectView
+from django.views.generic import FormView, RedirectView, TemplateView
 from django.conf import settings
 from django.utils import simplejson as json
 from django.core.urlresolvers import reverse
@@ -53,3 +53,7 @@ srsslsf""" }
 
         return self.render_to_response(
             self.get_context_data(**context))
+
+
+class Help(TemplateView):
+    template_name = "help.html"

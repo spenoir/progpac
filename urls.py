@@ -5,6 +5,7 @@ from progpac import views
 
 urlpatterns = patterns('',
     url(r'^$', views.Home.as_view(), name='home'),
+    url(r'^help/$', views.Help.as_view(), name='help'),
     url(r'^(?P<level_name>\w+)/$', views.Level.as_view(), name='level')
 )
 urlpatterns += staticfiles_urlpatterns()
