@@ -1,7 +1,9 @@
 $(document).ready(function() {
-    $('.editor textarea').on('keyup', function() { 
-        $('.code_length').html(
-            'Code length: '+ $(this).val().length
-        );
+    var $editor = $('.editor textarea')
+
+    $('.code_length').html($editor.val().length);
+
+    $editor.on('keyup', function() { 
+        $('.code_length').html($editor.val().length);
     });
 });
