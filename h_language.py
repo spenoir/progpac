@@ -142,7 +142,7 @@ class Parser(object):
                 for move in element:
 
                     if move == "s":
-                        real_position = self.direction % 4
+                        real_position = abs(self.direction) % 4
                         
                         if real_position == 0:
                             next_place = self.level_lines[self.position[0]-1][self.position[1]]
