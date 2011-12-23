@@ -29,8 +29,8 @@ srsslsf""" }
     
     def get_context_data(self, *args, **kwargs):
         context = super(Level, self).get_context_data(*args, **kwargs)
-        context["level"] = json.dumps(self.level.lines);
-        context["all_levels"] = models.Level.objects.all()
+        context["level_json"] = json.dumps(self.level.lines)
+        context["level"] = self.level
         return context
         
     def form_valid(self, form):
