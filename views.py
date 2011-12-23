@@ -17,7 +17,7 @@ class Home(RedirectView):
 
 
 class Level(FormView):
-    template_name = "base.html"
+    template_name = "level.html"
     form_class = forms.Editor
     initial = { 'text': """x:lslsrssrsls
 f:xxx
