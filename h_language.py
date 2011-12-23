@@ -111,7 +111,10 @@ class Parser(object):
         
         try:
             self.ast = parser.parse(code)[0]
-            self.body = filter(lambda x: x.__class__ == Body, self.ast)[0]
+            try:
+                self.body = filter(lambda x: x.__class__ == Body, self.ast)[0]
+            except IndexError:
+                self.body = ""
             self.funcs = dict(
                 map(lambda x: (x[0], x),
                 filter(lambda x: isinstance(x,FuncDef), self.ast)))
