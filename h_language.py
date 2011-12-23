@@ -163,10 +163,10 @@ class Parser(object):
                         else:
                             steps.append("x")
                         
-                    if move in "r":
+                    elif move in "r":
                         steps.append(move)
                         self.direction=+1
-                    if move in "l":
+                    elif move in "l":
                         steps.append(move)
                         self.direction=-1
             
