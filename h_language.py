@@ -142,33 +142,33 @@ class Parser(object):
                 for move in element:
 
                     if move == "s":
-                        real_position = abs(self.direction) % 4
+                        real_direction = self.direction % 4
                         
-                        if real_position == 0:
+                        if real_direction == 0:
                             next_place = self.level_lines[self.position[0]-1][self.position[1]]
                             next_position = (self.position[0]-1, self.position[1])
-                        elif real_position == 1:
+                        elif real_direction == 1:
                             next_place = self.level_lines[self.position[0]][self.position[1]+1]
                             next_position = (self.position[0], self.position[1]+1)
-                        elif real_position == 2:
+                        elif real_direction == 2:
                             next_place = self.level_lines[self.position[0]+1][self.position[1]]
                             next_position = (self.position[0]+1, self.position[1])
-                        elif real_position == 3:
+                        elif real_direction == 3:
                             next_place = self.level_lines[self.position[0]][self.position[1]-1]
                             next_position = (self.position[0], self.position[1]-1)
-                        
+
                         if next_place in (".", "o"):
                             steps.append(move)
                             self.position = next_position
                         else:
                             steps.append("x")
-                        
+                    
                     elif move in "r":
                         steps.append(move)
-                        self.direction=+1
+                        self.direction+=1
                     elif move in "l":
                         steps.append(move)
-                        self.direction=-1
+                        self.direction-=1
             
             elif isinstance(element, Variable):
                 steps.append(loc[element.name])
@@ -197,7 +197,9 @@ class Parser(object):
 
 
 if __name__ == "__main__":
-    code =  """ssrls
+    code =  """x:lslsrssrsls
+f:xxx
+srsslsf
     """
     parser = Parser(code, open('levels/level1.txt').read())
     print parser.code
