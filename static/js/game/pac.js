@@ -47,6 +47,7 @@ Pac.method('move', function (what) {  // s(step) ; l(turn-left) ; l(turn-right)
   case "s": this.step(); break;
   case "r": this.direction.right(); break;
   case "l": this.direction.left(); break;
+  case "@": success(); break;
   default:
     this.debug("Wrong move: " + what);
   }

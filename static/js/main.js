@@ -7,3 +7,7 @@ $(document).ready(function() {
         $('.code_length').html($editor.val().length);
     });
 });
+
+function success() {
+    alert("Great Success!");
+}

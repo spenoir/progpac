@@ -17,6 +17,8 @@
             type="text/javascript"></script>
     <script src="{% get_static_prefix %}js/bootstrap-dropdown.js"
             type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/bootstrap-modal.js"
+            type="text/javascript"></script>
     <script src="{% get_static_prefix %}js/main.js"
             type="text/javascript"></script>
 
@@ -37,6 +39,21 @@
   </head>
 
   <body>
+
+    <div id="my-modal" class="modal hide fade">
+      <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>Modal Heading</h3>
+      </div>
+      <div class="modal-body">
+        <p>One fine body…</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn primary">Primary</a>
+        <a href="#" class="btn secondary">Secondary</a>
+      </div>
+    </div>
+
     <div class="topbar" data-dropdown="dropdown">
       <div class="topbar-inner">
         <div class="container">

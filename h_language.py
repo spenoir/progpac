@@ -133,6 +133,11 @@ class Parser(object):
 
         self.position = position
         self.direction = 0
+        self.dots = []
+        for y, line in enumerate(self.level_lines):
+            for x, element in enumerate(line):
+                if element == "o":
+                    self.dots.append([y, x, element])
 
     def go(self, body, loc=None, steps=None):
         if loc is None:
@@ -163,6 +168,13 @@ class Parser(object):
                         if next_place in (".", "o"):
                             steps.append(move)
                             self.position = next_position
+                            if next_place == "o":
+                                self.dots.remove([
+                                    next_position[0],
+                                    next_position[1],
+                                    next_place])
+                                if not self.dots:
+                                    steps.append("@")
                         else:
                             steps.append("x")
                     
