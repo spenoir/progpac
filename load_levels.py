@@ -1,6 +1,7 @@
 import os
 import sys
 import re
+import time
 from django.core.management import setup_environ
 import settings
 
@@ -18,14 +19,20 @@ if len(sys.argv) > 1:
     directory = sys.argv[1]
     Level.objects.all().delete()
     for f in sorted_nicely(os.listdir(sys.argv[1])):
-        level_lines = open(os.path.join(directory, f)).readlines()[:25]
+        file_content = open(os.path.join(directory, f)).readlines()
+        level_lines = file_content[:25]
         content = [line.rstrip() for line in level_lines]
         name = f.rstrip(".txt")
         content = "\n".join(content)
 
-
+        points = file_content[26].strip().split(" ")[1]
+        maxsize = file_content[27].strip().split(" ")[1]
         
         Level.objects.create(
             name=name,
-            content=content
+            content=content,
+            points=points,
+            maxsize=maxsize
         )
+
+        time.sleep(0.01)

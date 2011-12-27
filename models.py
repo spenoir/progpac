@@ -8,6 +8,8 @@ class Level(models.Model):
     hash = models.CharField(max_length=40, unique=True, primary_key=True)
     name = models.CharField(max_length=64)
     content = models.TextField()
+    points = models.IntegerField()
+    maxsize = models.IntegerField()
 
     @property
     def lines(self):
@@ -28,7 +30,7 @@ class Level(models.Model):
         return ('level', [self.hash])
 
     def save(self, *args, **kwargs):
-        if not self.hash:
+        if not self.pk:
             self.hash = hashlib.sha1(str(time.time())).hexdigest()
         super(Level, self).save(*args, **kwargs)
         
