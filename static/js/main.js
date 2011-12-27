@@ -6,8 +6,16 @@ $(document).ready(function() {
     $editor.on('keyup', function() { 
         $('.code_length').html($editor.val().length);
     });
+
+    $('.modal').modal({
+        keyboard: true
+    });
+    
+    $('.modal').find('.close, .secondary').click(function() {
+        $(this).parents('.modal').modal('hide');
+    });
 });
 
 function success() {
-    alert("Great Success!");
+    $('.modal').modal('show');
 }
