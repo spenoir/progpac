@@ -1,10 +1,11 @@
 $(document).ready(function() {
     var $editor = $('.editor textarea')
-
-    $('.code_length').html($editor.val().length);
+    var $code_counter = $('.code-size')
+    
+    $code_counter.html($editor.val().length);
 
     $editor.on('keyup', function() { 
-        $('.code_length').html($editor.val().length);
+        $code_counter.html($editor.val().length);
     });
 
     $('.modal').modal({

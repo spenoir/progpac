@@ -18,7 +18,8 @@
       {% csrf_token %}
       {{ form.text }}
       <div class="actions">
-        Code length: <span class="code_length"></span>
+        Code length: 
+        <span class="code-size"></span>/<span class="code-maxsize">{{ level.maxsize }}</span>
         <input name="submit" type="submit" class="btn" value="Debug">
         <input name="submit" type="submit" class="btn primary" value="Make it Move!">
       </div>
