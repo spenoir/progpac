@@ -25,7 +25,7 @@ srsslsf""" }
 
     @property
     def level(self):
-        return models.Level.objects.get(name=self.kwargs.get('level_name'))
+        return models.Level.objects.get(hash=self.kwargs.get('level_hash'))
     
     def get_context_data(self, *args, **kwargs):
         context = super(Level, self).get_context_data(*args, **kwargs)

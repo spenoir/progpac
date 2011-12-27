@@ -1,7 +1,12 @@
+import hashlib
+import time
+
 from django.db import models
+from progpac import utils
 
 
 class Level(models.Model):
+    hash = models.CharField(max_length=40, unique=True, primary_key=True)
     name = models.CharField(max_length=64)
     content = models.TextField()
 
@@ -21,4 +26,10 @@ class Level(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('level', [str(self.name)])
+        return ('level', [self.hash])
+
+    def save(self, *args, **kwargs):
+        if not self.hash:
+            self.hash = hashlib.sha1(str(time.time())).hexdigest()
+        super(Level, self).save(*args, **kwargs)
+        
