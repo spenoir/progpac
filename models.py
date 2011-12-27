@@ -2,7 +2,6 @@ import hashlib
 import time
 
 from django.db import models
-from progpac import utils
 
 
 class Level(models.Model):
