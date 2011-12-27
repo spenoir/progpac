@@ -10,7 +10,7 @@ class Level(models.Model):
         return self.content.split("\n")
 
     @property
-    def next_level(self):
+    def next(self):
         n = False
         for level in Level.objects.all():
             if n == True:
@@ -18,4 +18,7 @@ class Level(models.Model):
             if level == self:
                 n = True
         return None
-                
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('level', [str(self.name)])

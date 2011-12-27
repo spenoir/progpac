@@ -51,7 +51,7 @@
         </p>
       </div>
       <div class="modal-footer">
-        <a href="{% url level level.next_level.name %}" class="btn primary">
+        <a href="{{ level.next.get_absolute_url }}" class="btn primary">
           Next Level
         </a>
         <a href="#" class="btn secondary">
@@ -73,7 +73,7 @@
               <ul class="dropdown-menu">
                 {% for level in all_levels %}
                 <li>
-                  <a href="{% url level level.name %}">
+                  <a href="{{ level.get_absolute_url }}">
                     {{ level.name|capfirst }}
                   </a>
                 </li>

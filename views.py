@@ -13,7 +13,7 @@ class Home(RedirectView):
     
     def get_redirect_url(self, **kwargs):
         level = models.Level.objects.all()[:1].get()
-        return reverse('level', kwargs={'level_name': level.name})
+        return level.get_absolute_url()
 
 
 class Level(FormView):
@@ -53,7 +53,6 @@ srsslsf""" }
 
         return self.render_to_response(
             self.get_context_data(**context))
-
 
 class Help(TemplateView):
     template_name = "help.html"
