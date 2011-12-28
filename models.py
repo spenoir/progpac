@@ -31,6 +31,6 @@ class Level(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.hash = hashlib.sha1(str(time.time())).hexdigest()
+            self.hash = hashlib.sha1(str(time.time())).hexdigest()[:10]
         super(Level, self).save(*args, **kwargs)
         
