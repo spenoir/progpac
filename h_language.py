@@ -1,6 +1,12 @@
 from lepl import *
 from lepl.matchers.error import syntax_error_kargs
-    
+
+from django.core.management import setup_environ
+import settings
+setup_environ(settings)
+
+from progpac.models import Level, Bug
+
 
 def init(self, stream):
     self.lineno = s_deepest(stream)[1]._delta[1]
@@ -58,7 +64,7 @@ class Variable(List):
 
 class FuncArgs(List): pass
 
-class Moves(List): pass
+class Move(List): pass
 
 class Main(List): pass
 
@@ -74,15 +80,15 @@ right_bracket = ~Token("\)")
 call = Delayed()
 func = Delayed()
 
-moves = (Token("[lsr]")[1:] > (lambda x: "".join(x)))
+move = Token("[lsr]") ** with_line(Move) # > (lambda x: "".join(x)))
 variable = Token('[A-Z]') ** with_line(Variable)
-body = (moves | call | variable)[1:] ** with_line(Body)
+body = (move[1:] | call | variable)[1:] ** with_line(Body)
 
 func_name = Token("[abcdefghijkmnopqtuvwxyz]")
 
 # Function Call
 call_digits = Token('[A-Z]') & Token('\-') & Token("[0-9]")[1:] > (lambda x: "".join(x))
-call_args = left_bracket & Or(moves, call_digits)[1:, comma] & right_bracket > FuncArgs
+call_args = left_bracket & Or(move[1:], call_digits)[1:, comma] & right_bracket > FuncArgs
 call+= (func_name & call_args[:1]) ** with_line(FuncCall)
 
 # Function definition
@@ -98,19 +104,17 @@ parser.config.lines()
 
 class Parser(object):
 
-    def __init__(self, code, level=""):
-
-        if level:
-            self.setup_level(level)
-            
+    def __init__(self, program, level=None):
+        
+        self.bug = Bug(level)
+        self.code = []
         self.body = None
         self.ast = None
         self.funcs = {}
-        self.code = ""
         self.error = None
         
         try:
-            self.ast = parser.parse(code)[0]
+            self.ast = parser.parse(program)[0]
             try:
                 self.body = filter(lambda x: x.__class__ == Body, self.ast)[0]
             except IndexError:
@@ -119,74 +123,25 @@ class Parser(object):
                 map(lambda x: (x[0], x),
                 filter(lambda x: isinstance(x,FuncDef), self.ast)))
             
-            self.code = self.go(self.body)
+            self.go(self.body)
         except (Error, FullFirstMatchException) as e:
             self.error = "Line: %s, Character: %s. %s" % (
                 e.lineno, e.offset, e.msg)
 
-    def setup_level(self, level):
-        self.level_lines = level.split("\n")
-        for i, line in enumerate(self.level_lines):
-            index = line.find("u")
-            if index > 0:
-                position = (i, index)
-
-        self.position = position
-        self.direction = 0
-        self.dots = []
-        for y, line in enumerate(self.level_lines):
-            for x, element in enumerate(line):
-                if element == "o":
-                    self.dots.append([y, x, element])
-
-    def go(self, body, loc=None, steps=None):
+    def go(self, body, loc=None):
         if loc is None:
             loc = {}
-        if steps is None:
-            steps = []
 
         for element in body:
-            if isinstance(element, basestring):
-                for move in element:
-
-                    if move == "s":
-                        real_direction = self.direction % 4
-                        
-                        if real_direction == 0:
-                            next_place = self.level_lines[self.position[0]-1][self.position[1]]
-                            next_position = (self.position[0]-1, self.position[1])
-                        elif real_direction == 1:
-                            next_place = self.level_lines[self.position[0]][self.position[1]+1]
-                            next_position = (self.position[0], self.position[1]+1)
-                        elif real_direction == 2:
-                            next_place = self.level_lines[self.position[0]+1][self.position[1]]
-                            next_position = (self.position[0]+1, self.position[1])
-                        elif real_direction == 3:
-                            next_place = self.level_lines[self.position[0]][self.position[1]-1]
-                            next_position = (self.position[0], self.position[1]-1)
-
-                        if next_place in (".", "o"):
-                            steps.append(move)
-                            self.position = next_position
-                            if next_place == "o":
-                                self.dots.remove([
-                                    next_position[0],
-                                    next_position[1],
-                                    next_place])
-                                if not self.dots:
-                                    steps.append("@")
-                        else:
-                            steps.append("x")
-                    
-                    elif move in "r":
-                        steps.append(move)
-                        self.direction+=1
-                    elif move in "l":
-                        steps.append(move)
-                        self.direction-=1
-            
+            if isinstance(element, Move):
+                move = element[0]
+                if self.bug:
+                    self.code.append(self.bug.move(move))
+                else:
+                    self.code.append(move)
+                
             elif isinstance(element, Variable):
-                steps.append(loc[element.name])
+                pass
             
             elif isinstance(element, FuncCall):
                 function_call = element
@@ -204,18 +159,16 @@ class Parser(object):
                                  "in_offset": element.in_char})
                 args = dict(zip(function_def.args, function_call.args))
                 try:
-                    steps.append( self.go(function_def.body, args) )
+                    self.go(function_def.body, args)
                 except RuntimeError:
-                    steps.append("...")
-    
-        return "".join(steps)
-
+                    self.code.append("!")
+            
 
 if __name__ == "__main__":
-    code =  """x:lslsrssrsls
-f:xxx
-srsslsf
+    program =  """x:lslsrssrsls
+    f:xxx
+    srsslsf
     """
-    parser = Parser(code, open('levels/level1.txt').read())
-    print parser.code
-    print parser.error
+    first_level = Level.objects.all()[0]
+    parser = Parser(program, first_level)
+    print "".join(parser.code)
