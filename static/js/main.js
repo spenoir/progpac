@@ -7,11 +7,9 @@ function count_code() {
 }
 
 $(document).ready(function() {
-    var $editor = $('.editor textarea')
     var $code_counter = $('.code-size')
     
-    var code_lenght = count_code();
-    $code_counter.html(code_lenght);
+    $code_counter.html(count_code());
 
     $editor.on('keyup', function() { 
         $code_counter.html(count_code());
