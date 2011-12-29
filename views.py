@@ -36,18 +36,20 @@ srsslsf""" }
     def form_valid(self, form):
         parser = h_language.Parser(
             form.cleaned_data['text'],
-            self.level.content
+            self.level
         )
 
+        code = "".join(parser.code)
+        
         context = {
             "form": form,
             "error": parser.error,
-            "code": parser.code,
+            "code": code
         }
 
         if self.request.POST['submit'] == 'Debug':
             context.update({
-                "debug_code": parser.code,
+                "debug_code": code,
                 "debug_ast": parser.ast,
             })
 
