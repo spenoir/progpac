@@ -9,7 +9,7 @@ function setup_code_counter() {
 
     $code_size.html(code_length);
 
-    if ($code_size.html() > $code_maxsize.html()) {
+    if (parseInt($code_size.html()) > parseInt($code_maxsize.html())) {
         $code_size.css('color', "#B94A48")
     } else {
         $code_size.css('color', "#468847")
