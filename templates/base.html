@@ -1,4 +1,6 @@
 {% load static %}
+{% load tags %}
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -39,13 +41,14 @@
   </head>
 
   <body>
+
     <div class="topbar" data-dropdown="dropdown">
       <div class="topbar-inner">
         <div class="container">
           <h3><a href="#">ProgPac</a></h3>
           <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li class="active" class="dropdown">
+            <li class="{% active "home" %}"><a href="#">Home</a></li>
+            <li class="{% active "level" %}" class="dropdown">
               <a href="#" class="dropdown-toggle">
                 {{ level.name|capfirst|default:"Levels" }}
               </a>
@@ -59,7 +62,7 @@
                 {% endfor %}
               </ul>
             </li>
-            <li><a href="{% url help %}">Help</a></li>
+            <li class="{% active "help" %}"><a href="{% url help %}">Help</a></li>
           </ul>
         </div>
       </div>
