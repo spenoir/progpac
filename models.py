@@ -59,7 +59,7 @@ class Bug(object):
 
 
 class Level(models.Model):
-    hash = models.CharField(max_length=40, unique=True, primary_key=True)
+    hash = models.CharField(max_length=40, unique=True, db_index=True)
     name = models.CharField(max_length=64)
     content = models.TextField()
     points = models.IntegerField()
@@ -104,6 +104,9 @@ class Level(models.Model):
             if level == self:
                 n = True
         return None
+
+    def all_previous(self):
+        return Level.objects.filter(id__lte=self.pk)
         
     @models.permalink
     def get_absolute_url(self):

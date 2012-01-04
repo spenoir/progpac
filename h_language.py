@@ -1,3 +1,5 @@
+import re
+
 from lepl import *
 from lepl.matchers.error import syntax_error_kargs
 
@@ -112,6 +114,8 @@ class Parser(object):
         self.ast = None
         self.funcs = {}
         self.error = None
+        self.program = program
+        self.program_length = len(re.sub("\s", "", self.program))
         
         try:
             self.ast = parser.parse(program)[0]
