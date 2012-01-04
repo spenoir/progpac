@@ -4,7 +4,7 @@ function setup_code_counter() {
     var code = $('.editor textarea').val();
 
     var code_length = $.map(code.split("\n"), function(element) {
-        return element.replace(/\s/g,"")
+        return element.replace(/[\s:]/g,"")
     }).join("").length;
 
     $code_size.html(code_length);

@@ -115,7 +115,7 @@ class Parser(object):
         self.funcs = {}
         self.error = None
         self.program = program
-        self.program_length = len(re.sub("\s", "", self.program))
+        self.program_length = len(re.sub("[\s:]", "", self.program))
         
         try:
             self.ast = parser.parse(program)[0]
