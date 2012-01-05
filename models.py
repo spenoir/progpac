@@ -1,5 +1,4 @@
 import hashlib
-import time
 
 from django.db import models
 
@@ -114,7 +113,7 @@ class Level(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.hash = hashlib.sha1(str(time.time())).hexdigest()[:10]
+            self.hash = hashlib.sha1(self.content).hexdigest()[:10]
         super(Level, self).save(*args, **kwargs)
 
     def __unicode__(self):
