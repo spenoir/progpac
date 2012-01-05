@@ -1,7 +1,11 @@
-from django.views.generic import FormView, RedirectView, TemplateView
+from django.views.generic import (FormView, RedirectView, TemplateView,
+                                  CreateView, View)
+from django.views.generic.edit import BaseCreateView
 from django.conf import settings
 from django.utils import simplejson as json
 from django.core.urlresolvers import reverse
+from django.db.models import Min
+from django.http import HttpResponseRedirect
 
 from progpac import forms
 from progpac import h_language
@@ -57,6 +61,13 @@ class Level(FormView):
 
         if code.find("@") > -1 and parser.program_length <= self.level.maxsize:
             context['level_next'] = self.level.next
+            initial=dict(
+                level=self.level,
+                program=parser.program,
+                email=self.request.session.get("email", "someone@somewhere.com"),
+                username=self.request.session.get("username", "someone")
+            )
+            context['result_form'] = forms.ResultForm(initial=initial)
             self.request.session['last_level_hash'] = self.level.next.hash
 
         if self.request.POST['submit'] == 'Debug':
@@ -68,5 +79,43 @@ class Level(FormView):
         return self.render_to_response(
             self.get_context_data(**context))
 
+
+class ResultSave(View):
+
+    def post(self, request):
+        form = forms.ResultForm(request.POST)
+        
+        if form.is_valid():
+
+            self.request.session["email"] = form.cleaned_data['email']
+            self.request.session["username"] = form.cleaned_data['username']
+            
+            level = form.cleaned_data['level']
+            
+            parser = h_language.Parser(
+                form.cleaned_data['program'],
+                level
+            )
+            
+            code = "".join(parser.code)
+
+            if code.find("@") > -1 and parser.program_length <= level.maxsize:
+                result = form.save(commit=False)
+                result.program_length = parser.program_length
+                result.save()
+                return HttpResponseRedirect(level.next.get_absolute_url())
+
+        return HttpResponseRedirect(level.get_absolute_url())
+
+
 class Help(TemplateView):
     template_name = "help.html"
+
+
+class Results(TemplateView):
+    template_name = "results.html"
+    
+    def get_context_data(self, *args, **kwargs):
+        return {
+            "levels": models.Level.objects.all()
+        }

@@ -5,5 +5,5 @@ def default(request):
     last_level = Level.objects.get(hash=last_level_hash)
 
     return {
-        'all_levels': last_level.all_previous()
+        'previous_levels': last_level.all_previous()
     }

@@ -4,23 +4,46 @@
 
 {% if level_next %}
 <div class="modal hide fade">
-  <div class="modal-header">
-    <a href="#" class="close">&times;</a>
-    <h3>Great Success!</h3>
-  </div>
-  <div class="modal-body">
-    <p>
-      So you did it ... damn it
-    </p>
-  </div>
-  <div class="modal-footer">
-    <a href="{{ level_next.get_absolute_url }}" class="btn primary">
-      Next Level
-    </a>
-    <a href="#" class="btn secondary">
-      Stay Here
-    </a>
-  </div>
+  <form method="POST" action="{% url result_save %}">
+     {% csrf_token %}
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Great Success! You did it ... damn it.</h3>
+    </div>
+    <div class="modal-body">
+      <p>
+        Your solution  is the  shortest one committed  yet. We  will put
+        your name into  Result page. If you will give  us email as well.
+        We might send you information  if somebody will beat your result
+        up. In other case, both fields are not required.
+      </p>
+      <fieldset>
+        {{ result_form.program }}
+        {{ result_form.level }}
+        <div class="clearfix">
+          {{ result_form.username.label_tag }}
+          <div class="input">
+            {{ result_form.username }}
+          </div>
+        </div>
+        <div class="clearfix">
+          {{ result_form.email.label_tag }}
+          <div class="input">
+            {{ result_form.email }}
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="modal-footer">
+      <!-- <a href="{{ level_next.get_absolute_url }}" class="btn primary"> -->
+      <!--   Next Level -->
+      <!-- </a> -->
+      <input type="submit" value="Next Level" class="btn primary"/>
+      <a href="#" class="btn secondary">
+        Stay Here
+      </a>
+    </div>
+  </form>
 </div>
 {% endif %}
 

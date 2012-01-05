@@ -53,7 +53,7 @@
                 {{ level.name|capfirst|default:"Levels" }}
               </a>
               <ul class="dropdown-menu">
-                {% for level in all_levels %}
+                {% for level in previous_levels %} 
                 <li>
                   <a href="{{ level.get_absolute_url }}">
                     {{ level.name|capfirst }}
@@ -63,6 +63,7 @@
               </ul>
             </li>
             <li class="{% active "help" %}"><a href="{% url help %}">Help</a></li>
+            <li class="{% active "results" %}"><a href="{% url results %}">Results</a></li>
           </ul>
         </div>
       </div>

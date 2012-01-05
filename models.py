@@ -116,4 +116,30 @@ class Level(models.Model):
         if not self.pk:
             self.hash = hashlib.sha1(str(time.time())).hexdigest()[:10]
         super(Level, self).save(*args, **kwargs)
-        
+
+    def __unicode__(self):
+        return self.name
+
+    def best_result(self):
+        try:
+            return Result.objects.filter(level=self).order_by('program_length')[0]
+        except IndexError:
+            return None
+
+class Result(models.Model):
+    level = models.ForeignKey('Level')
+    program = models.TextField()
+    program_length = models.IntegerField()
+
+    username = models.CharField(max_length=16, blank=True)
+    email = models.EmailField(blank=True)
+    commited = models.DateTimeField(auto_now_add=True)
+
+    def gravatar(self):
+        if self.email:
+            import hashlib
+            return hashlib.md5(self.email).hexdigest()
+        return ""
+    
+    def __unicode__(self):
+        return "%s:%s" % (self.level.name, self.program_length)
