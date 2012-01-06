@@ -1,0 +1,277 @@
+[
+  {
+    "pk": 1, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": ".........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n..........o.*.o..........\n.........................\n..........*.u.*..........\n.........................\n..........o.*.o..........\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................", 
+      "maxsize": 22, 
+      "points": 100, 
+      "hash": "29973d71d3", 
+      "name": "level1"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": ".........................\n.........................\n.........................\n.........................\n.........................\n.........................\n............**...........\n............oo...........\n...........*..*..........\n.........o.....o.........\n........*.*.D.*..........\n......*o....F...*........\n......*o..BEOEA..o*......\n........*...F....o*......\n.........u*.C.*.*........\n.........o.....o.........\n..........*..*...........\n...........oo............\n...........**............\n.........................\n.........................\n.........................\n.........................\n.........................\n.........................", 
+      "maxsize": 14, 
+      "points": 300, 
+      "hash": "e07051cef8", 
+      "name": "level2"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "..........*.oo.*.........\n.........*.o**o.*........\n..........*.oo.*.........\n............**...........\n..........*.oo.*.........\n.........*.o**o.*........\n..........*.oo.*.........\n............**...........\n..........*.oo.*.........\n.........*.o**o.*........\n..........*.oo.*.........\n............**...........\n..........*.oo.*.........\n.........*.o**o.*........\n..........*.oo.*.........\n............**...........\n..........*.oo.*.........\n.........*.o**o.*........\n..........*.oo.*.........\n............**...........\n..........*.oo.*.........\n.........*.o**o.*........\n..........*.oo.*.........\n............**...........\n..............u..........", 
+      "maxsize": 22, 
+      "points": 400, 
+      "hash": "007674badc", 
+      "name": "level3"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "...........D.............\n...........F.............\n...........F*............\n...........Fo*...........\n...........Fo*...........\n...........Fo*...........\n..........*F.*...........\n.........*oF.*...........\n.........*oF.********....\n.........*oF.oo...ooo*...\n.........*.Co*.BEEEEEEEEA\n.........*..o*.*.........\n.........*.***.*.........\n.........*.*o.u*.........\nBEEEEEEEEA.*oD.*.........\n...*ooo...oo.Fo*.........\n....********.Fo*.........\n...........*.Fo*.........\n...........*.F*..........\n...........*oF...........\n...........*oF...........\n...........*oF...........\n............*F...........\n.............F...........\n.............C...........", 
+      "maxsize": 21, 
+      "points": 400, 
+      "hash": "5bfc8ce918", 
+      "name": "level4"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "...............*.o.......\n..............*o.........\n.............*...........\n............*.o*.........\n............o............\n.........................\n.................o.......\no.....o*BEEA..*o.*.......\n........*BEA....*D.......\n*o.*...o.*BA..o*DF.......\n.*.o...*.o*.o.*DFF.......\n..*........*.*.CCC.......\n...*o.....o.u.o.....o*...\n.......DDD.*.*........*..\n.......FFC*.o.*o.*...o.*.\n.......FC*o..BA*.o...*.o*\n.......C*....BEA*........\n.......*.o*..BEEA*o.....o\n.......o.................\n.........................\n............o............\n.........*o.*............\n...........*.............\n.........o*..............\n.......o.*...............", 
+      "maxsize": 31, 
+      "points": 500, 
+      "hash": "7c508533af", 
+      "name": "level5"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "o.o.o................o.oo\n.........................\n......*BEEEEEEEEEEEA.....\n.....Do............o*....\n.....F..............D....\n.....F..............F....\n.....F..............F....\n.....F..*BEEEEEEEA..F....\n.....F.Do........o*.F....\n.....F.F..........D.F....\n.....F.F..*BEEEA..F.F....\n.....F.F.Do....o*.F.F....\n.....F.F.C..uo*.D.F.F....\n.....F.F.*o..oD.F.F.F....\n.....F.C..BEA*C.F.F.F....\n.....F.*o......oC.F.F....\n.....F..BEEEEEA*..F.F....\n.....F............F.F....\n.....C............F.F....\n.....*o..........oC.F....\n......BEEEEEEEEEA*..F....\n....................F....\n....................F....\n....................C....\no.o.o..............o.o.oo", 
+      "maxsize": 20, 
+      "points": 500, 
+      "hash": "b0b57951c3", 
+      "name": "level6"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "............o*.......ooo.\no.........*o********o**..\no*.******.*o..***...o*...\no**......*...*...*....*..\n.oo.**...*o.*.....*o*.*..\n.D..oo.***o.*.....*o*.*..\n.F..**.oo.o..*...*....*..\n.F.*..*..oooo.***.o*..*..\n.F*....*.o**.oo...o*..*..\n.F*....*.....**.oo.**....\n.F*....*o*......*oooo.**.\n*F.*..*.o*......*o....oo.\noC..**......u......**..Do\n.oo....o*......*o.*..*.F*\n.**.oooo*......*o*....*F.\n....**.oo.**.....*....*F.\n..*..*o...oo.**o.*....*F.\n..*..*o.***..ooo..*..*.F.\n..*....*...*..o.oo.**..F.\n..*.*o*.....*.o***.oo..C.\n..*.*o*.....*.o*...**.oo.\n..*....*...*..........**o\n...*o...***..o*.******.*o\n..**o********o*.........o\n.ooo.......*o............", 
+      "maxsize": 26, 
+      "points": 1000, 
+      "hash": "fc91086058", 
+      "name": "level7"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "*o**o*BEEEEEEEEEEEEEEEEEH\noo*oo*..................F\n*oo*oo*.................C\nD*oo*oo*...........*o**o*\nF.*oo*oo*.........*oooooo\nF..*oo*oo*.......*oo*oo**\nF...*oo*oo*.....*oo*oo*.D\nF....*oo*oo*...*oo*oo*..F\nF.....*oo*oo*.*oo*oo*...F\nF......*oo*oo*oo*oo*....F\nF......*ooooooo*oo*.....F\nF.....*oo*ooooooo*......F\nF....*oo*oooo*oo*.......F\nF...*oo*oooo*oo*........F\nF..*oo*ooooooo*.........F\nF.*oo*oo*oo*oo*.........F\nC*oo*oo***oo*oo*........F\n*oo*oo*...*oo*oo*.......F\noo*oo*.....*oo*oo*......F\no*oo*.......*oo*oo*.....F\nooo*.........*oo*oo*....F\n*o*...........*oo*oo*...F\nD..............*oo*oo*..F\nF...............*ou*oo*.F\nIEEEEEEEEEEEEEEEA***o*BEG", 
+      "maxsize": 27, 
+      "points": 1100, 
+      "hash": "4233cb2185", 
+      "name": "level8"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "oooooooooooJEEEEEEEEEEEHo\n**oBEEEEEAoF.......JEEEGo\noooBEEEEAooF.......Fooooo\no*oBEEEEAo*F.......FoDDDo\no*oooooooooIEEEH...FoFFFo\no*o******ooooooF...FoFFFo\no*ooooooooo***oF...FoFFFo\nooooo****ooooooF...FoFFFo\n****ooooooooo*oIEEEGoCCFo\n*********o**o*oooooooooCo\n*****ooooo**o*o****oo*ooo\n*****o******o*ooooooooo*o\n*****o******u******o**ooo\n*****o*************oJEEEH\nooo*oo*********oooooF...F\noDooooooooo****oJEEEG...F\noFDDoJEEEHo****oF.......F\noFFFoF...Fo****oF.......F\noFFFoF...Fo****oF.......F\noFFFoF...FooooooIEEEEEEHF\noFFFoF...IEEEHoooooooooFF\noCCCoF.......F*oBEEEEAoFF\noooooF.......FooBEEEEAoFF\noJEEEG.......FoBEEEEEAoIG\noIEEEEEEEEEEEGooooooooooo", 
+      "maxsize": 31, 
+      "points": 1100, 
+      "hash": "d1ffb5251b", 
+      "name": "level9"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "...........o*o...........\n..........o.o.o..........\n.........o*...*o.........\n........o..o.o..o........\n.......o*.o.*.o.*o.......\n......o..o.*.*.o..o......\n.....o*.o.*...*.o.*o.....\n....o..o.*.....*.o..o....\n...o*.o.*.......*.o.*o...\n..o..o.*.........*.o..o..\n.o*.o.*...........*.o.*o.\no..o.*.............*.o..o\n*o..*...............*..o*\no..o.*.............*.o..o\n.o*.o.*...........*.o.*o.\n..o..o.*.........*.o..o..\n...o*.o.*.......*.o.*o...\n....o..o.*.....*.o..o....\n.....o*.o.*...*.o.*o.....\n......o..o.*.*.o..o......\n.......o*.o.*.o.*o.......\n........o..o.o..o........\n.........o*.u.*o.........\n..........o.o.o..........\n...........o*o...........", 
+      "maxsize": 29, 
+      "points": 1200, 
+      "hash": "f03f84d2cf", 
+      "name": "level10"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "...*.oooo.***............\n...*.ooooo....***........\n...*.o**oooooo....***....\n....oo******oooooo....***\n..*.oo*....*****oooooo...\n..*.o*.........*****ooooo\n..*.o*.............****o.\n...oo*...............**o.\n.*.oo*...............*oo.\n.*.o**...............*oo.\n.*.o*................*o.*\n..oo*...............**o.*\n*.oo*.......u.......*oo.*\n*.o*................*oo..\n*.o*................*o.*.\n.oo*...............**o.*.\n.oo*...............*oo.*.\n.o**...............*oo...\n.o****.............*o.*..\nooooo*****........**o.*..\n...oooooo*****....*oo.*..\n***....oooooo******oo....\n....***....oooooo**o.*...\n........***....ooooo.*...\n............***....o.*...", 
+      "maxsize": 32, 
+      "points": 1200, 
+      "hash": "1be164adc2", 
+      "name": "level11"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "o...........o...........o\n.*o.*......*.*......*.o*.\n.oo..*......*......*..oo.\n...*o.*...........*.o*...\n.*.oo..*.........*..oo.*.\n..*..*o.*.......*.o*..*..\n...*.oo..*.....*..oo.*...\n....*..*o.*...*.o*..*....\n.....*.oo..*.*..oo.*.....\n......*..*o.*.o*..*......\n.......*.oo.o.oo.*.......\n.*......*..*.*..*......*.\no.*......*o.u.o*......*.o\n.*......*..*.*..*......*.\n.......*.oo.o.oo.*.......\n......*..*o.*.o*..*......\n.....*.oo..*.*..oo.*.....\n....*..*o.*...*.o*..*....\n...*.oo..*.....*..oo.*...\n..*..*o.*.......*.o*..*..\n.*.oo..*.........*..oo.*.\n...*o.*...........*.o*...\n.oo..*......*......*..oo.\n.*o.*......*.*......*.o*.\no...........o...........o", 
+      "maxsize": 21, 
+      "points": 1300, 
+      "hash": "a505b7cc58", 
+      "name": "level12"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": ".......JA..*.*..BH.......\n......*C.oo.*.oo.C*......\n.....JAo.*..*..*.oBH.....\n.....C..*..o.o..*..C.....\n.......*...*.*...*.......\n......oBEEEAoBEEEAo......\n.....*.............*.....\n.......*...*o*...*.......\n........*..ouo..*........\n.......*.o..o..o.*.......\n.....Do...*...*...oD.....\n.....IAo.*.*.*.*.oBG.....\n......BHo.*.o.*.oJA......\n.......C.o.*o*.o.C.......\n.........*o...o*.........\n.......*.*.o.o.*.*.......\n........o..*.*..o........\n.......*.o.*.*.o.*.......\n........*.o...o.*........\n.........*.o.o.*.........\n........*..*.*..*........\n.........*.*.*.*.........\n..........o.o.o..........\n..........*o.o*..........\n...........***...........", 
+      "maxsize": 43, 
+      "points": 1300, 
+      "hash": "e9508589cf", 
+      "name": "level13"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "o...o...o..o.o..o..ooo.oo\no***o***o**o*.*..**o*o*.o\no***o***o**o*.*.***ooo*..\nooo*ooo*oooooo..*****.*..\n.*o*.*o*.*o*.o..*****.*..\n.*o***o***o*.o*.**oooo*.o\n.*o*.*o*.*o*.o*.**o**..oo\n.*.***.***.*..*oooo****..\n.*.*.*.*.*.*..*********..\n.*.***.***.*..**oooo....o\n.*.*.*.*.*.*..**o******oo\no*o***o***o*.oooo*.*.*.*.\no*o*.*o*.*o*u***********o\no*o***o***.**oooo......oo\no*o*.*.*.*.**o**********.\no*.***.***oooo.*.*.*.*.*.\n.*.*.*.*.***************o\n.*.***.**oooo..........oo\n.*.*.*.**o**************.\n.*.***oooo.*.*.*.*.*.*.*.\n.*.*.*******************o\n.*.**oooo..............oo\n.*.*.o.*.*.*.*.*.*.*.*.*.\no*oooo******************o\noo........ooooo........oo", 
+      "maxsize": 27, 
+      "points": 1400, 
+      "hash": "2c3d0bbe87", 
+      "name": "level14"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "*.D.D.D.D.D..D.D.D.D.D.D.\no.C.F.F.F.F..F.F.F.F.F.C.\n..*.F.F.F.F..F.F.F.F.C.o.\n..o.C.F.F.F..F.F.F.F.*...\n....*.F.F.F..F.F.F.C.o...\n....o.C.F.F..F.F.F.*.....\n......*.F.F..F.F.C.o.....\n......o.C.F..F.F.*.......\n........*.F..F.C.o.......\n........o.C..F.*.........\n..........*..C.o.........\n..........o..*...........\n...........o.o...........\n...........*..o..........\n.........o.D..*..........\n.........*.F..D.o........\n.......o.D.F..F.*........\n.......*.F.F..F.D.o......\n.....o.D.F.F..F.F.*......\n.....*.F.F.F..F.F.D.o....\n...o.D.F.F.F..F.F.F.*....\n...*.F.F.F.F..F.F.F.D.o..\n.o.D.F.F.F.F..F.F.F.F.*..\n.D.F.F.F.F.F..F.F.F.F.D.o\nuC.C.C.C.C.C..C.C.C.C.C.*", 
+      "maxsize": 34, 
+      "points": 1500, 
+      "hash": "65c302ee7b", 
+      "name": "level15"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "....DooD.......JEEH......\n....FooF.......FooF......\n....FooF.......FooF......\n....FooIEEEEEELMooF......\n....Foo*ooooooFFooIEEEEEA\n....FoooooooooFFoo*oooooo\nJEEEKAo*oBLEEEGFooooooooo\nFoooooooooFJEEEKAo*oBLEEA\nFoooooo*ooFFoooooooooF...\nIEEEEEEHooFFoooooo*ooF...\n...JEEHFooFFoJEEEEHooF...\n...FooFFooIGoIEEEHFooF...\n...FooFFoooouooooFFooF...\n...FooFIEEEHoJHooFFooF...\n...FooIEEEEGoFFooFIEEG...\n...Foo*ooooooFFooIEEEEEEH\n...FoooooooooFFoo*ooooooF\nBEEKAo*oBLEEEGFoooooooooF\noooooooooFJEEEKAo*oBLEEEG\noooooo*ooFFoooooooooF....\nBEEEEEHooFFoooooo*ooF....\n......FooFIEEEEEEHooF....\n......FooF.......FooF....\n......FooF.......FooF....\n......IEEG.......CooC....", 
+      "maxsize": 38, 
+      "points": 1500, 
+      "hash": "230ccad2c0", 
+      "name": "level16"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "ooooooooooooooo..........\noooooooooooo*oo..........\no**oooooooooooooo........\noooooooooo*o*oo*o........\no**o***oooooooooooo......\noooooooo*o*o*oo*o*o......\no**o***o*o*oooooooooo....\noooooooooo*o*oo*o*o*o....\no**o***o*o*o*oooooooooo..\no**ooooooooo*oooo*o*o*o..\no**oo**o*o*o*oooo*ooooooo\no**oo**oooooooooo*ooo*o*o\noooooooooooouoooooooooooo\noooooooooooooo***o***o**o\nooooooo*oooo*o***o***o**o\n..o*o*o*oooo*o***o***o**o\n..oooooooooo*o***o***o**o\n....o*o*o*oo*o***o***o**o\n....oooooooooo***o***o**o\n......o*o*oo*****o***o**o\n......oooooooooooo***o**o\n........o*oo*********o**o\n........oooooooooooooo**o\n..........oo************o\n..........ooooooooooooooo", 
+      "maxsize": 26, 
+      "points": 1500, 
+      "hash": "a3fae9cbe0", 
+      "name": "level17"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "o..o......o*.........*o.o\n.*.*.......o*.......*o.*.\no.o*........o*.....*o.o..\n*o.*.................***o\n.*o...........o***o......\n..*......ooo...o*o.......\n....o....o*o....o........\n....*o.ooooo...o.o.......\n....**o.*o.....o*o.......\n....*o.ooo..*..ooooo.....\n....o.....*ooo*..o*o....o\n..*.......o...o..ooo...o*\n.*o......*o.u.o*......o*.\n*o...ooo..o...o.......*..\no....o*o..*ooo*.....o....\n.....ooooo..*..ooo.o*....\n.......o*o.....o*.o**....\n.......o.o...ooooo.o*....\n........o....o*o....o....\n.......o*o...ooo......*..\n......o***o...........o*.\no***.................*.o*\n..o.o*.....*o........*o.o\n.*.o*.......*o.......*.*.\no.o*.........*o......o..o", 
+      "maxsize": 21, 
+      "points": 1600, 
+      "hash": "2471762074", 
+      "name": "level18"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "oBEEEEEEEEEAooooooooooooo\no***********o*********o*D\nooo.......ooo*BEH***ooo*F\no*o.......o*****F***o..*F\no*ooo...ooo*BEH*C*ooo..*F\no***o...o*****F***o....*F\no***ooo.o*...*C*ooo....*F\no*****o.o**..***o......*F\no*JEA*ooooo*.*ooooooo..*F\no*F*****o*o***o*o***o..*F\no*C*JEA*ooooooooo*.*ooo*F\no***F*****o*o*o**..***o*C\nooo*C*...*oouoo*...*D*ooo\nD*o***..**o*o*o*****F***o\nF*ooo*.*ooooooooo*BEG*D*o\nF*..o***o*o***o*o*****F*o\nF*..ooooooo*.*ooooo*BEG*o\nF*......o***..**o.o*****o\nF*....ooo*D*...*o.ooo***o\nF*....o***F*****o...o***o\nF*..ooo*D*IEA*ooo...ooo*o\nF*..o***F*****o.......o*o\nF*ooo***IEA*ooo.......ooo\nC*o*********o***********o\noooooooooooooBEEEEEEEEEAo", 
+      "maxsize": 23, 
+      "points": 1700, 
+      "hash": "f3dc301622", 
+      "name": "level19"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "D.D.D.D.o.......o.D.D.D.D\nF.F.F.IEEEEA.BEEEEG.F.F.F\nF.F.F...............F.F.F\nF.F.C.BEEEEA.BEEEEA.C.F.F\nF.F...................F.F\nF.F.JEEEEEEA.BEEEEEEH.F.F\nF.F.Fo.............oF.F.F\nF.C.IEEEEEEEEEA.BEEEG*C.F\nF.......................F\nNA.BEEEEEEEEEEEEEEEEEA.BM\nF.......................F\nIEEA.BEEEEELELEEEEEA.BEEG\n....*......FuF...........\n.D.D.D.D.D.C.C.D.D.D.D.D.\n.F.F.F.F.F.....F.F.F.F.F.\n.F.F.F.F.F.D.D.F.F.F.F.F.\n.F.F.F.F.F.F.F.F.F.F.F.F.\n.F.F.IEM.F.F.F.F.NEG.F.F.\n.F.F...F.C.F.F.C.F...F.F.\n.C.NEH.C...F.F...C.JEM.C.\n...F.F...D.F.F.D...F.F...\nBA.F.C.D.F.C.F.F.D.C.F.BA\n...F...F.F...F.F.F...F...\nBEEKEA.C.C.D.IEG.C.BEKEEA\n...........Co............", 
+      "maxsize": 21, 
+      "points": 1700, 
+      "hash": "5fedd0d28c", 
+      "name": "level20"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": ".........................\n..BEEEEEEEEEEEEEEEEEEEEA.\n.BEEEEEEEEEEEEEEEEEEEEEA.\nD*ooooooooooooooooooooooo\nFooBEEEEEEEEEEEEEEEEEEEAo\nFoBEEEEEEEEEEEEEEEEEEEEAo\nFoDD*oooooooooooooooooooo\nFoFFooBEEEEEEEEEEEEEEEEAo\nFoFFoBEEEEEEEEEEEEEEEEEAo\nFoFFoDD*ooooooooooooooooo\nFoFFoFFooBEEEEEEEEEEEEEAo\nFoFFoFFoBEEEEEEEEEEEEEEAo\nFoFFoFFoDD*oooooooooooooo\nFoFFoFFoFFooBEEEEEEEEEEAo\nFoFFoFFoFFoBEEEEEEEEEEEAo\nFoFFoFFoFFoDD*ooooooooooo\nFoFFoFFoFFoFFooBEEEEEEEAo\nFoFFoFFoFFoFFoBEEEEEEEEAo\nFoFFoFFoFFoFFoDD*oooooooo\nFoFFoFFoFFoFFoFFooBEEEEAo\nFoFFoFFoFFoFFoFFoBEEEEEAo\nFoFFoFFoFFoFFoFFoDD*ooooo\nFoCFoCFoCFoCFoCFoCFooBEAo\nCooCooCooCooCooCooCooBEAo\noooooooooooooooooooooooou", 
+      "maxsize": 22, 
+      "points": 1800, 
+      "hash": "dad3f7d37c", 
+      "name": "level21"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": ".........................\n.........................\n.........................\n*.......*.......*.......*\no*.....*o*.....*o*.....*o\n.BEEEEEAo.......oBEEEEEA.\no.o.o...o*.....*o...o.o.o\no*.D.***.*.....*.***.D.*o\no..Fooo...........oooF..o\n*..F....*.......*....F..*\n...F...*o.......o*...F...\n...F.*o*.BEEEEEA.*o*.F...\n...Fo.o.....u.....o.oF...\n...F.*o*.BEEEEEA.*o*.F...\n...F...*o.......o*...F...\n*..F....*.......*....F..*\no..Fooo...........oooF..o\no*.C.***.*.....*.***.C.*o\no.o.o...o*.....*o...o.o.o\n.BEEEEEAo.......oBEEEEEA.\no*.....*o*.....*o*.....*o\n*.......*.......*.......*\n.........................\n.........................\n.........................", 
+      "maxsize": 22, 
+      "points": 1800, 
+      "hash": "ead20d38db", 
+      "name": "level22"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "DDDDDDDDDDD....oooooo....\nFFFFFFFFFFCoo*o*o*o*o*o*o\nFFFFFFFFFFooooooooooooooo\nFFFFFFFFFCoo*o*o*o*o*o*o*\nFFFFFFFFCooooooooooooooo*\nFFFFFFFC*oo*o*o*o*o*o*o**\nFFFFFFF*....ooooooo....*D\nFFFFFFC*oo*o*o*o*o*o*o*DF\nFFFFFF*ooooooooooooooo*FF\nFFFFFC*oo*o*o*o*o*o*o**FF\nFFFFF*ooooooooooooooo*DFF\nFFFFC*oo*o*o*o*o*o*o*DFFF\nFFFF*....ooooooo....*FFFF\nFFFC*oo*o*o*o*o*o*o**FFFF\nFFF*ooooooooooooooo*DFFFF\nFFC*oo*o*o*o*o*o*o*DFFFFF\nFF*ooooooooooooooo*FFFFFF\nFC*oo*o*o*o*o*o*o*DFFFFFF\nC*....ooooooo....*FFFFFFF\n**oo*o*o*o*o*o*o*DFFFFFFF\n*ooooooooooooooo*FFFFFFFF\n*oo*o*o*o*o*o*o**FFFFFFFF\nooooooooooooooo*DFFFFFFFF\noo*o*o*o*o*o*o**FFFFFFFFF\nu...oooooooo....CCCCCCCCC", 
+      "maxsize": 26, 
+      "points": 2250, 
+      "hash": "8639800952", 
+      "name": "level23"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "ooooooooooo*ooo*ooo*ooo*o\n**o*o*o*o*o*o*o*o*o*o*o*o\nooooooooooo*o*ooo*o*o*ooo\no*****o*o.o*o*****o*o*o*o\nooooooo*o.o*o.....o*o*ooo\n******o*o.o*o.....o*o*o*o\nooooooooo.o*o.....ooooooo\no***......o*o.....o***o*o\nooo*......o*o.....ooooooo\n**o*......o*o.........o*o\nooo*......ooo.ooooooooooo\no***.......***o**********\nooooooooooo***ooooooooooo\n**********o***.......***o\nooooooooooo.ooo......*ooo\no**.........o*o......*o**\nooooooo.....o*o......*ooo\no*o***o.....o*o......***o\nooooooo.....o*o.ooooooooo\no*o*o*o.....o*o.o*o******\nooo*o*o.....o*o.o*ooooooo\no*o*o*o*****o*o.o*o*****o\nooo*o*o*ooo*o*ooooooooooo\no*o*o*o*o*o*o*o*o*o*o*o**\no*ooo*ooo*oou*ooooooooooo", 
+      "maxsize": 35, 
+      "points": 2300, 
+      "hash": "09a946fc32", 
+      "name": "level24"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "progpac.level", 
+    "fields": {
+      "content": "o*o*o*o*o*oooooo......ooo\noDoDoDoDo*.*o*.*.BEEEEEA*\noFoFoFoCo..o.o..o.....ooo\n.F.F.C.*.*o*.*o*.*.BEEEA*\n.F.F..o..o.....o..o...ooo\n.F.C.*.*o*.*.*.*o*.*.BEA*\n.F..o..o....o....o..o.ooo\n.C.*.*o*.*.*o*.*.*o*.*BA*\n..o..o....o.o.o....o..ooo\no*.*o*.*.*o*o*o*.*.*o*.**\no..o....ooo.o.ooo....o..o\no*o*.*.*.*o*o*o*.*.*.*o*o\noo....ooooo.u.ooooo....oo\no*o*.*.*.*o*o*o*.*.*.*o*o\no..o....ooo.o.ooo....o..o\n**.*o*.*.*o*o*o*.*.*o*.*o\nooo..o....o.o.o....o..o..\n*BA*.*o*.*.*o*.*.*o*.*.D.\nooo.o..o....o....o..o..F.\n*BEA.*.*o*.*.*.*o*.*.D.F.\nooo...o..o.....o..o..F.F.\n*BEEEA.*.*o*.*o*.*.D.F.F.\nooo.....o..o.o..oDoFoFoFo\n*BEEEEEA.*.*o*.*oCoCoCoCo\nooo......oooooo*o*o*o*o*o", 
+      "maxsize": 36, 
+      "points": 3000, 
+      "hash": "c05ed39043", 
+      "name": "level25"
+    }
+  }
+]
