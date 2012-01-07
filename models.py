@@ -15,7 +15,9 @@ class Bug(object):
         return self.direction % 4
 
     def move(self, move):
-        if move == "s":
+        if not self.dots:
+            return "@"
+        elif move == "s":
             return self.step_forward()
         elif move == "r":
             return self.turn_right()
@@ -41,8 +43,7 @@ class Bug(object):
             if next_step == "o":
                 self.level.lines[self.position[0]][self.position[1]] = "."
                 self.dots.remove(self.position)
-                if not self.dots:
-                    return "s@"
+                return "s"
             return "s"
             
         else:
