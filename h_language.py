@@ -110,6 +110,7 @@ class Parser(object):
         
         self.bug = Bug(level)
         self.code = []
+        self.code_debug = []
         self.body = None
         self.ast = None
         self.funcs = {}
@@ -145,6 +146,8 @@ class Parser(object):
                 if self.bug:
                     move = self.bug.move(move)
                     self.code.append(move)
+                    self.code_debug.append(
+                        (element.in_lineno, element.in_char, move))
                 else:
                     self.code.append(move)
                 

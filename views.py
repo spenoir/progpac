@@ -72,7 +72,8 @@ class Level(FormView):
 
         if self.request.POST['submit'] == 'Debug':
             context.update({
-                "debug_code": code,
+                "debug_code1": code,
+                "debug_code2": parser.code_debug,
                 "debug_ast": parser.ast,
             })
 
