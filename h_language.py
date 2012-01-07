@@ -140,7 +140,10 @@ class Parser(object):
             if isinstance(element, Move):
                 move = element[0]
                 if self.bug:
-                    self.code.append(self.bug.move(move))
+                    move = self.bug.move(move)
+                    self.code.append(move)
+                    if "@" in move:
+                        break
                 else:
                     self.code.append(move)
                 
