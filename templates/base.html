@@ -11,28 +11,28 @@
     <link rel="stylesheet" type="text/css"
           href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700">
     <link rel="stylesheet/less" type="text/css"
-          href="{% get_static_prefix %}lib/custom.less">
+          href="{% get_static_prefix %}main.less">
 
-    <script src="{% get_static_prefix %}js/less.js"
+    <script src="{% get_static_prefix %}less.js"
             type="text/javascript"></script>
-    <script src="{% get_static_prefix %}js/jquery.js"
+    <script src="{% get_static_prefix %}jquery.js"
             type="text/javascript"></script>
-    <script src="{% get_static_prefix %}js/bootstrap-dropdown.js"
+    <script src="{% get_static_prefix %}bootstrap/js/bootstrap-dropdown.js"
             type="text/javascript"></script>
-    <script src="{% get_static_prefix %}js/bootstrap-modal.js"
+    <script src="{% get_static_prefix %}bootstrap/js/bootstrap-modal.js"
             type="text/javascript"></script>
-    <script src="{% get_static_prefix %}js/main.js"
+    <script src="{% get_static_prefix %}main.js"
             type="text/javascript"></script>
 
 
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/init.js"></script>
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/drawing.js"></script>
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/cell.js"></script>
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/grid.js"></script>
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/grid-model.js"></script>
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/pac.js"></script>
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/game.js"></script>
-    <script type="text/javascript" src="{% get_static_prefix %}js/game/main.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/init.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/drawing.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/cell.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/grid.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/grid-model.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/pac.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/game.js"></script>
+    <script type="text/javascript" src="{% get_static_prefix %}game/main.js"></script>
     <script type="text/javascript">
       var LEVEL = {{ level_json|safe }};
       var CODE = "{{ code|default:"" }}";
