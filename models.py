@@ -34,7 +34,7 @@ class Bug(object):
             self.position[1] + next_move[1]
         )
 
-        if next_step in (".", "o"):
+        if next_step in (".", "o", "u"):
             
             self.position = (
                 self.position[0] + next_move[0],
