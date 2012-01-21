@@ -29,14 +29,10 @@ USE_L10N = True
 MEDIA_ROOT = ''
 MEDIA_URL = ''
 
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static'),
 STATIC_URL = '/static/'
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
-
-STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, 'static'),
-)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
