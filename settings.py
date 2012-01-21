@@ -97,3 +97,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from deploy.settings import *
+except ImportError:
+    pass
